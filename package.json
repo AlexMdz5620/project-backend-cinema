@@ -1,0 +1,29 @@
+{
+  "name": "project-cinema",
+  "version": "1.0.0",
+  "description": "Proyecto para la Kata de BACKEND Avanzado NoSQL",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "Alex Mdz",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "jwt-simple": "^0.5.6",
+    "mongoose": "^8.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
+  }
+}

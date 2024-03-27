@@ -47,11 +47,11 @@ const createTicket = async (req, res) => {
     })
   }
 }
-// TODO: get all tickets
+// get all tickets
 const getAllTickets = async (req, res) => {
   try {
     const getAllTickets = await Ticket.find()
-      .populate('users', '_id name lastName email tel')
+      .populate('customer', '_id name lastName email tel')
       .populate('film', 'name')
     const ticketCount = getAllTickets.length
     if (ticketCount > 0) {
@@ -74,17 +74,17 @@ const getAllTickets = async (req, res) => {
 // TODO: get ticket by User Id
 const getTicketByUserId = async (req, res) => {
   try {
-    const getTicketByUserId = await Ticket.find({ users: req.params.userId })
-      .populate('users', 'id name lastName email tel')
-      .populate('movie', 'name')
+    const getTicketByUserId = await Ticket.find({ customer: req.params.userId })
+      .populate('customer', '_id name lastName email tel')
+      .populate('film', 'name')
     if (!getTicketByUserId || getTicketByUserId.length === 0) {
       return res.status(404).json({
-        message: 'Tickets not found for this user'
+        msg: 'Tickets not found for this user'
       })
     }
     const ticketCount = getTicketByUserId.length
     res.status(200).json({
-      message: ` ${ticketCount} tickets found successfully`,
+      msg: ` ${ticketCount} tickets found successfully`,
       getTicketByUserId
     })
   } catch (error) {

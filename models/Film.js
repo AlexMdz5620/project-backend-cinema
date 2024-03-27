@@ -15,6 +15,10 @@ const filmSchema = new mongoose.Schema({
     default: [],
     required: true
   },
+  duration: {
+    type: Number,
+    required: true
+  },
   releaseDate: {
     type: Date,
     required: true
